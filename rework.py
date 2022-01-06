@@ -1,11 +1,18 @@
 print("----------------------------------------------------\n Bienvenue dans mon programme de gestion des stocks".title()) 
 menu = "----------------------------------------------------\n 1.Se Ravitailler \n 2.Ajouter Un Client \n 3.Effectuer Un Livraisons \n 4.Voir L'historique Des Livraisons \n 5.Afficher Le Stock \n 6.Editer Un Produit \n 7.Editer Un Cilent"
+import json 
+
 
 quantite = {
-    "pomme" : 10,
-    "banane": 9,
-    "raisins": 5 
+     "pomme" : 10,
+     "banane": 9,
+     "raisins": 5, 
 }
+
+chemin = "python_za/quantite.json"
+with open(chemin, "w") as f:
+    non=json.dump(quantite , f)
+    print(type(non))
 
 infos = {
     "Nan" : "nan@yahoo.com",
@@ -66,7 +73,7 @@ def effect():
                     print(f'{key} : {value}')
                 print("Votre commande a été effectuée")
                 commande ={}
-            elif name_produit not in quantite:
+            if name_produit not in quantite:
                 print("Cette adresse email n'existe pas, veuillez retournez a option 2")
         except KeyError:
             print("Ce produit n'existe pas ")
