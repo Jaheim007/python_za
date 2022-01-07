@@ -147,4 +147,3 @@ while options != "empty":
     print(menu)
     options = input("Veuillez choisir une option:\t ")
     chose_menu.get(options , error)()
-
